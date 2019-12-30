@@ -411,7 +411,7 @@ public final class ClusterImpl implements Cluster {
   }
 
   @Override
-  public <T> Optional<T> metadata(Member member) {
+  public <T> Optional<T> metadata(Member member, Type ) {
     if (member().equals(member)) {
       return metadata();
     }

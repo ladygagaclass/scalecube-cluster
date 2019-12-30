@@ -2,6 +2,7 @@ package io.scalecube.cluster;
 
 import io.scalecube.cluster.transport.api.Message;
 import io.scalecube.net.Address;
+import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Optional;
 import reactor.core.publisher.Mono;
@@ -71,6 +72,7 @@ public interface Cluster {
    *
    * @return local member metadata
    */
+  @Deprecated
   <T> Optional<T> metadata();
 
   /**
@@ -79,7 +81,25 @@ public interface Cluster {
    * @param member cluster member
    * @return cluster member metadata
    */
+  @Deprecated
   <T> Optional<T> metadata(Member member);
+
+  /**
+   * Returns local cluster member metadata.
+   *
+   * @return local member metadata
+   */
+  <T> Optional<T> metadata(Type type);
+  <T> Optional<T> metadata(Class<T> type);
+
+  /**
+   * Returns cluster member metadata by given member with default metadata type.
+   *
+   * @param member cluster member
+   * @return cluster member metadata
+   */
+  <T> Optional<T> metadata(Member member, Type type);
+  <T> Optional<T> metadata(Member member, Class<T> type);
 
   /**
    * Returns local cluster member which corresponds to this cluster instance.

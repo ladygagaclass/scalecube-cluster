@@ -38,6 +38,7 @@
     <module>examples</module>
     <module>cluster-testlib</module>
     <module>transport-parent</module>
+    <module>cluster-codec-parent</module>
   </modules>
 
   <dependencies>
